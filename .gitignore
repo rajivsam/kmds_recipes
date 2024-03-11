@@ -56,10 +56,7 @@ docker_files/*.env
 .DS_Store
 .vagrant
 
-# code & config
-_service-provider/*
-_solr/schema.xml
-_src/*
-local/*
-.env
+## ignore yaml files in recipe directory
+recipe/*.yaml
+
 

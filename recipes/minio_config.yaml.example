@@ -1,5 +1,5 @@
 HOST_URL: "localhost:9000"
-ACCESS_KEY: "kmds_user"
-SECRET_KEY: "kmds_password"
-BUCKET_NAME: "kmds"
+ACCESS_KEY: "the_minio_user_name_in_your_case"
+SECRET_KEY: "the_minio_user_password_in_your_case"
+BUCKET_NAME: "your_bucket_name"
 
