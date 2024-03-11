@@ -49,6 +49,27 @@ def profile_missing_values(df: pd.DataFrame) -> List[str]:
     return missing_value_obs
 
 @task(log_prints=True)
+def update_ontology(obs:List[str]) -> None:
+    kaw = KnowledgeApplicationWorkflow("ITSM Raw Data Profile", namespace=onto)
+    exp_obs_list = []
+    observation_count :int = 1
+
+    for o in obs:
+        e = ExploratoryObservation(namespace=onto)
+        e.finding = o
+        e.finding_sequence = observation_count
+        e.exploratory_observation_type = ExploratoryTags.DATA_QUALITY_OBSERVATION.value
+        observation_count +=1
+        exp_obs_list.append(e)
+    
+    kaw.has_exploratory_observations = exp_obs_list
+
+    return
+
+
+
+
+@task(log_prints=True)
 def upload_report_to_bucket(onto: Ontology) ->None:
     s3_cfg = get_config("../minio_config.yaml")
     HOST_URL = s3_cfg["HOST_URL"]
@@ -67,25 +88,15 @@ def upload_report_to_bucket(onto: Ontology) ->None:
         sys.exit(1)
 
 
+
 @flow(name="itsm_raw_datafile_profile")
 def itsm_baseline_data_profile():
     df = load_data_from_bucket()
     mi = profile_meta_information(df)
     mv = profile_missing_values(df)
-    kaw = KnowledgeApplicationWorkflow("ITSM Raw Data Profile", namespace=onto)
-    exp_obs_list = []
-    observation_count :int = 1
-    dobs = mi + mv
+    obs = mi + mv
+    update_ontology(obs)
 
-    for o in dobs:
-        e = ExploratoryObservation(namespace=onto)
-        e.finding = o
-        e.finding_sequence = observation_count
-        e.exploratory_observation_type = ExploratoryTags.DATA_QUALITY_OBSERVATION.value
-        observation_count +=1
-        exp_obs_list.append(e)
-    
-    kaw.has_exploratory_observations = exp_obs_list
     upload_report_to_bucket(onto=onto)
 
 
