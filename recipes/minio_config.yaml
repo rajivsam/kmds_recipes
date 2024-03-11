@@ -1,5 +1,0 @@
-HOST_URL: "localhost:9000"
-ACCESS_KEY: "kmds_user"
-SECRET_KEY: "kmds_password"
-BUCKET_NAME: "kmds"
-
