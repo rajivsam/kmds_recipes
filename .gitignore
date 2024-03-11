@@ -57,6 +57,6 @@ docker_files/*.env
 .vagrant
 
 ## ignore yaml files in recipe directory
-recipe/*.yaml
+recipes/*.yaml
 
 
