@@ -30,17 +30,7 @@ MANIFEST
 #DS_Store
 *.DS_Store
 **/*.DS_Store
-#box_integration
-box_integration/
-#planning
-planning/
-# log files
-**/*.log
-# all zip files
-**/*.zip
-## all config files
-src/config/
-## all workspace files
+
 .vscode/
 ## history
 **/.history
@@ -55,5 +45,8 @@ docker_files/*.env
 
 ## ignore yaml files in recipe directory
 recipes/*.yaml
+
+## ignore unzipped csv files
+data/*.csv
 
 
