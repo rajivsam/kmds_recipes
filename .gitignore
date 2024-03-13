@@ -45,9 +45,6 @@ src/config/
 ## history
 **/.history
 
-
-## don't add the data directory
-data
 ## ignore logs
 *.log
 ##
