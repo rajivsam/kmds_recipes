@@ -1,0 +1,53 @@
+Field Name,Definition,,,
+AsOfDate,Date when the data was recorded,,,
+Program,Indicator of whether loan was approved under SBA's 7(a) or 504 loan program,,,
+BorrName,Borrower name,,,
+BorrStreet,Borrower street address,,,
+BorrCity,Borrower city,,,
+BorrState,Borrower state,,,
+BorrZip,Borrower zip code,,,
+CDC_Name,Name of CDC that the loan is currently assigned to,,,
+CDC_Street,CDC street address,,,
+CDC_City,CDC city,,,
+CDC_State,CDC state,,,
+CDC_Zip,CDC zip code,,,
+ThirdPartyLender_Name,Name of third party lender,,,
+ThirdPartyLender_City,Third party lender city,,,
+ThirdPartyLender_State,Third party lender state,,,
+ThirdPartyDollars,Third party loan amount,,,
+GrossApproval,SBA/CDC loan amount,,,
+ApprovalDate,Date the loan was approved,,,
+ApprovalFiscalYear,Fiscal year the loan was approved,,,
+FirstDisbursementDate,Date of first loan disbursement (if available),,,
+DeliveryMethod,"Specific delivery method loan was approved under.  See SOP 50 10 5 for definitions and rules for each delivery method.  
+504 Delivery Methods:
+• 504 = Regular 504
+• 504REFI = 504 Refinance (inactive)
+• ALP = Accredited Lenders Program
+• PCLP = Premier Certified Lenders ",,,
+subpgmdesc,Subprogram description - specific subprogram loan was aproved under.  See SOP 50 10 5 for definitions and rules for each subprogram.,,,
+TermInMonths,Length of loan term,,,
+NaicsCode,North American Industry Classification System (NAICS) code,,,
+NaicsDescription,North American Industry Classification System (NAICS) description,,,
+FranchiseCode,Franchise Code,,,
+FranchiseName,Franchise Name (if applicable),,,
+ProjectCounty,County where project occurs,,,
+ProjectState,State where project occurs,,,
+SBADistrictOffice,SBA district office,,,
+CongressionalDistrict,Congressional district where project occurs,,,
+BusinessType,"Borrower Business Type - Individual, Partnership, or Corporation",,,
+BusinessAge,"SBA began collecting the following business age information in fiscal year 2018:  
+• Change of Ownership
+• Existing or more than 2 years old
+• New Business or 2 years or less
+• Startup, Loan Funds will Open Business",,,
+LoanStatus,"Current status of loan:  
+• NOT FUNDED = Undisbursed
+• PIF = Paid In Full
+• CHGOFF = Charged Off
+• CANCLD = Cancelled
+• EXEMPT = The status of loans that have been disbursed but have not been cancelled, paid in full, or charged off are exempt from disclosure under FOIA Exemption 4",,,
+PaidInFullDate,Date loan was paid in full (if applicable),,,
+ChargeOffDate,Date SBA charged off loan (if applicable),,,
+GrossChargeOffAmount,Total SBA/CDC loan balance charged off,,,
+Jobs Supported,"Total Jobs Created + Jobs Retained as reported by lender on SBA Loan Application.  SBA does not review, audit, or validate these numbers - they are simply self-reported, good faith estimates by the lender.",,,
