@@ -1,0 +1,152 @@
+<h2 id="learning-to-predict-7a-charge-offs">Learning to Predict 7a
+Charge Offs</h2>
+<p>This example will illustrate how the recipe in the KMDS repository
+can be applied to develop a machine-learning solution to predict 7a loan
+charge-offs based on 2023 data. This could be useful to screen loans
+this year (2024). This will be a direct application of the <a
+href="https://github.com/rajivsam/KMDS/blob/main/examples_of_use/workflow_recipe.md">recipe
+template</a> in the <a href="https://github.com/rajivsam/KMDS">KMDS
+repository</a>.</p>
+<h3 id="caveat-emptor">Caveat Emptor</h3>
+<p>The goal here is to illustrate how KMDS can be used with a reasonable
+size machine learning task. The focus here is not the modeling per se,
+it is how the modeling observations are captured. If you are a loan
+modeling expert, please bear this in mind when you review. With that
+said, the approach is not an unreasonable one.</p>
+<h2 id="exploratory-data-analysis">Exploratory Data Analysis</h2>
+<ol type="1">
+<li>In this exercise, there will be limited model selection, so the
+choice of the workflow is the
+<em>KnowledgeExtractionExperimentationWorkflow</em></li>
+<li>The details of the subset of attributes from the raw data file that
+are candidates for modeling are identified and logged.</li>
+<li>Exploratory analysis reveals missing values for some attributes, the
+attributes and the strategy to address missing values are logged.</li>
+<li>The majority of attributes are categorical. One hot encoding is a
+common strategy to encode categorical values in modeling. However, an
+evaluation of the cardinality of each of the categorical values reveals
+that the resulting one-hot encoding vector will be too large for most
+libraries. Therefore, modeling should use a data representation that
+will account for this fact. This finding is logged.</li>
+<li>Chargeoffs are rare. Less than 5 percent of the loans guaranteed by
+the SBA were charged off in 2023. The fact that there is an
+<em>imbalance</em> in the target attribute we want to predict is logged.
+The modeling approach we choose to apply to the task must account for
+this property.</li>
+<li>Some data is held out for model evaluation, and the rest is used for
+model development. The proportion held for model evaluation is logged.
+The data files are saved as <em>parquet</em> for efficiency.</li>
+</ol>
+<h2 id="data-representation">Data Representation</h2>
+<ol type="1">
+<li>The central question for data representation is the cardinality of
+the feature space.</li>
+<li><em>Feature Hashing</em> is a common and effective way to deal with
+this. See <a
+href="https://www.youtube.com/watch?v=uhHZM_2sS5s&amp;t=379s">this
+lecture</a> for an explanation and <a
+href="https://www.youtube.com/watch?v=XelrzDtEnPY&amp;t=208s">this
+talk</a> for another perspective.</li>
+<li>The parameter of relevance here is the dimension we want to use for
+the feature space. This is a hyper-parameter. I have used 1024
+here.</li>
+<li>Feature hashing is applied to both hold-out (test) and model
+development datasets. Post featurization, the data is saved in <a
+href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.save_npz.html"><em>csr</em></a>
+format. This is very efficient and helps keep the size of the data files
+small.</li>
+</ol>
+<h2 id="modeling">Modeling</h2>
+<ol type="1">
+<li>Ensemble approaches are commonly used in applications with class
+imbalance. Please see <span class="citation"
+data-cites="leborgne2022fraud">(Le Borgne et al. 2022)</span>. This will
+be the approach we use for model selection. We will evaluate both
+bagging and boosting approaches to ensembling. This is the model
+selection experiment.</li>
+<li>The bagging approach is based on random forests. A nice description
+of the approach is available in this <a
+href="https://statistics.berkeley.edu/sites/default/files/tech-reports/666.pdf">technical
+report</a></li>
+<li>The boosting approach is based on <a
+href="seiffert2009rusboost">this paper</a>.</li>
+<li>Both methods are available in the <a
+href="https://imbalanced-learn.org/stable/zzz_references.html#id7"><em>imbalanced-learn</em></a><span
+class="citation" data-cites="imblearnref">(Lemaître, Nogueira, and
+Aridas 2017)</span></li>
+<li><span class="citation" data-cites="weiss2013foundations">(Weiss
+2013)</span> is a good reference for learning from imbalanced data.
+Accuracy is a misleading measure since we can get good accuracy by
+simply predicting the majority class in all instances. Balanced accuracy
+is one measure of performance for imbalanced learning. This is used
+here. A more interesting performance measure is the
+<em>sensitivity</em>, which measures the performance of the learner to
+pick the minority class.</li>
+<li>In this limited evaluation, though bagging produces better-balanced
+accuracy, the boosting approach produces better sensitivity. So we might
+get false positives, but we do better catching the chargeoffs. This is a
+surface-level treatment. Cost-sensitive evaluation is a very practical
+and evolving area of research.</li>
+<li>Costs and probabilities can be used to compute the utility of each
+possible prediction. We can then pick the decision with the highest
+utility. For example, the utility of approving the loan would be the
+product of the guarantee fee the SBA receives and the probability of the
+loan being paid in full. The utility of rejecting the loan would be the
+probability of the loan being a charge-off and the amount the SBA <a
+href="https://www.sba.gov/sites/sbagov/files/2023-08/7%28a%29%20Fees%20Notice%20FY%2024%205000-848801.pdf">provides
+a guarantee</a> for on the loan. See <span class="citation"
+data-cites="elkan2001foundations">(Elkan 2001)</span> and <span
+class="citation" data-cites="sheng2006thresholding">(Sheng and Ling
+2006)</span> for a discussion of how classifiers can be made
+cost-sensitive. This requires the accurate calibration of probabilities
+from the classifier to get good results. There exist methods such as <a
+href="https://scikit-learn.org/stable/modules/calibration.html">Platt
+scaling</a> to recalibrate a classifier to be more accurate. So a more
+rigorous approach to developing a model would look at these issues. The
+decision methodology that is used depends on the risk tolerance of the
+users of this application. Therefore, a solution can be developed only
+with collaboration and input from the end user.</li>
+</ol>
+<h2 id="report-generation">Report Generation</h2>
+<p>Report generation is similar to the analytics exercise and simply
+involves loading the knowledge base and accessing the observation lists
+for each type of observation.</p>
+<h2 class="unnumbered" id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-elkan2001foundations" class="csl-entry" role="listitem">
+Elkan, Charles. 2001. <span>“The Foundations of Cost-Sensitive
+Learning.”</span> In <em>International Joint Conference on Artificial
+Intelligence</em>, 17:973–78. 1. Lawrence Erlbaum Associates Ltd.
+</div>
+<div id="ref-leborgne2022fraud" class="csl-entry" role="listitem">
+Le Borgne, Yann-Aël, Wissam Siblini, Bertrand Lebichot, and Gianluca
+Bontempi. 2022. <em>Reproducible Machine Learning for Credit Card Fraud
+Detection - Practical Handbook</em>. Universit<span>é</span> Libre de
+Bruxelles. <a
+href="https://github.com/Fraud-Detection-Handbook/fraud-detection-handbook">https://github.com/Fraud-Detection-Handbook/fraud-detection-handbook</a>.
+</div>
+<div id="ref-imblearnref" class="csl-entry" role="listitem">
+Lemaître, Guillaume, Fernando Nogueira, and Christos K. Aridas. 2017.
+<span>“Imbalanced-Learn: A Python Toolbox to Tackle the Curse of
+Imbalanced Datasets in Machine Learning.”</span> <em>Journal of Machine
+Learning Research</em> 18 (17): 1–5. <a
+href="http://jmlr.org/papers/v18/16-365.html">http://jmlr.org/papers/v18/16-365.html</a>.
+</div>
+<div id="ref-seiffert2009rusboost" class="csl-entry" role="listitem">
+Seiffert, Chris, Taghi M Khoshgoftaar, Jason Van Hulse, and Amri
+Napolitano. 2009. <span>“RUSBoost: A Hybrid Approach to Alleviating
+Class Imbalance.”</span> <em>IEEE Transactions on Systems, Man, and
+Cybernetics-Part A: Systems and Humans</em> 40 (1): 185–97.
+</div>
+<div id="ref-sheng2006thresholding" class="csl-entry" role="listitem">
+Sheng, Victor S, and Charles X Ling. 2006. <span>“Thresholding for
+Making Classifiers Cost-Sensitive.”</span> In <em>Aaai</em>, 6:476–81.
+</div>
+<div id="ref-weiss2013foundations" class="csl-entry" role="listitem">
+Weiss, Gary M. 2013. <span>“Foundations of Imbalanced Learning.”</span>
+<em>Imbalanced Learning: Foundations, Algorithms, and Applications</em>,
+13–41. <a
+href="https://storm.cis.fordham.edu/gweiss/papers/foundations-imbalanced-13.pdf">https://storm.cis.fordham.edu/gweiss/papers/foundations-imbalanced-13.pdf</a>.
+</div>
+</div>
