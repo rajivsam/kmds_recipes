@@ -270,12 +270,12 @@
   <has_exploratory_observations rdf:resource="#exploratoryobservation1"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation3"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation4"/>
-  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation14"/>
-  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation13"/>
-  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation15"/>
-  <has_model_selection_observations rdf:resource="#modelselectionobservation13"/>
-  <has_model_selection_observations rdf:resource="#modelselectionobservation14"/>
-  <has_model_selection_observations rdf:resource="#modelselectionobservation15"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation17"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation18"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation16"/>
+  <has_model_selection_observations rdf:resource="#modelselectionobservation17"/>
+  <has_model_selection_observations rdf:resource="#modelselectionobservation16"/>
+  <has_model_selection_observations rdf:resource="#modelselectionobservation18"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#exploratoryobservation6">
@@ -320,6 +320,62 @@
   <exploratory_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relevance Observation</exploratory_observation_type>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#datarepresentationobservation3">
+  <rdf:type rdf:resource="#DataRepresentationObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Hashing is is used for dimensionality reduction. See the link in the data representation notebookfor information about setting up the input for feature hashing</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
+  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#datarepresentationobservation4">
+  <rdf:type rdf:resource="#DataRepresentationObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The feature dimension used for this exercise is 1024, this is a hyper-parameter.</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
+  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation14">
+  <rdf:type rdf:resource="#ModellingChoiceObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bagging uses 100 estimators, this is a hyper-parameter choice.</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
+  <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation13">
+  <rdf:type rdf:resource="#ModellingChoiceObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The feature dimension is 1024, this is a hyper-parameter choice.</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
+  <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation15">
+  <rdf:type rdf:resource="#ModellingChoiceObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boosting uses 200 estimators, this is a hyper-parameter choice.</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</finding_sequence>
+  <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#modelselectionobservation13">
+  <rdf:type rdf:resource="#ModelSelectionObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bagging and Boosting approaches to model development are evaluated.</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
+  <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#modelselectionobservation14">
+  <rdf:type rdf:resource="#ModelSelectionObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bagging has balanced accuracy: 0.72, sensitivity: 0.53</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
+  <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#modelselectionobservation15">
+  <rdf:type rdf:resource="#ModelSelectionObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boosting has balanced accuracy: 0.53, sensitivity: 0.93</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</finding_sequence>
+  <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#modellingchoiceobservation10">
   <rdf:type rdf:resource="#ModellingChoiceObservation"/>
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The feature dimension is 1024, this is a hyper-parameter choice.</finding>
@@ -360,20 +416,6 @@
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bagging and Boosting approaches to model development are evaluated.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
   <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#datarepresentationobservation3">
-  <rdf:type rdf:resource="#DataRepresentationObservation"/>
-  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Hashing is is used for dimensionality reduction. See the link in the data representation notebookfor information about setting up the input for feature hashing</finding>
-  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
-  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#datarepresentationobservation4">
-  <rdf:type rdf:resource="#DataRepresentationObservation"/>
-  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The feature dimension used for this exercise is 1024, this is a hyper-parameter.</finding>
-  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
-  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#datarepresentationobservation1">
@@ -516,42 +558,42 @@
   <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#modelselectionobservation13">
+<owl:NamedIndividual rdf:about="#modelselectionobservation16">
   <rdf:type rdf:resource="#ModelSelectionObservation"/>
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bagging and Boosting approaches to model development are evaluated.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
   <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#modellingchoiceobservation13">
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation16">
   <rdf:type rdf:resource="#ModellingChoiceObservation"/>
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The feature dimension is 1024, this is a hyper-parameter choice.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
   <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#modellingchoiceobservation14">
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation17">
   <rdf:type rdf:resource="#ModellingChoiceObservation"/>
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bagging uses 100 estimators, this is a hyper-parameter choice.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
   <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#modellingchoiceobservation15">
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation18">
   <rdf:type rdf:resource="#ModellingChoiceObservation"/>
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boosting uses 200 estimators, this is a hyper-parameter choice.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</finding_sequence>
   <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#modelselectionobservation14">
+<owl:NamedIndividual rdf:about="#modelselectionobservation17">
   <rdf:type rdf:resource="#ModelSelectionObservation"/>
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bagging has balanced accuracy: 0.72, sensitivity: 0.53</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
   <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#modelselectionobservation15">
+<owl:NamedIndividual rdf:about="#modelselectionobservation18">
   <rdf:type rdf:resource="#ModelSelectionObservation"/>
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boosting has balanced accuracy: 0.53, sensitivity: 0.93</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</finding_sequence>
