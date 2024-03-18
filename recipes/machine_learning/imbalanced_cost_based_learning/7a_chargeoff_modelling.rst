@@ -102,9 +102,8 @@ Modeling
    possible prediction. We can then pick the decision with the highest
    utility. For example, the utility of approving the loan would be the
    product of the guarantee fee the SBA receives and the probability of
-   the loan being paid in full. The utility of rejecting the loan would
-   be the probability of the loan being a charge-off and the amount the
-   SBA `provides a
+   the loan being paid in full. On the flip side, this action could cost
+   us the guarantee amount\ `provides a
    guarantee <https://www.sba.gov/sites/sbagov/files/2023-08/7%28a%29%20Fees%20Notice%20FY%2024%205000-848801.pdf>`__
    for on the loan. See (Elkan 2001) and (Sheng and Ling 2006) for a
    discussion of how classifiers can be made cost-sensitive. This
