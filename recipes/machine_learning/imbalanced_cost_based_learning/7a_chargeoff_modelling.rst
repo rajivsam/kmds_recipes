@@ -43,6 +43,10 @@ Exploratory Data Analysis
    model development. The proportion held for model evaluation is
    logged. The data files are saved as *parquet* for efficiency.
 
+See `the EDA
+notebook <https://github.com/rajivsam/kmds_recipes/blob/main/recipes/machine_learning/imbalanced_cost_based_learning/exploratory_data_analysis.ipynb>`__
+for implementation details.
+
 Data Representation
 -------------------
 
@@ -61,6 +65,10 @@ Data Representation
    `csr <https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.save_npz.html>`__
    format. This is very efficient and helps keep the size of the data
    files small.
+
+See `the Data Representation
+notebook <https://github.com/rajivsam/kmds_recipes/blob/main/recipes/machine_learning/imbalanced_cost_based_learning/data_representation.ipynb>`__
+for implementation details.
 
 Modeling
 --------
@@ -109,12 +117,20 @@ Modeling
    the users of this application. Therefore, a solution can be developed
    only with collaboration and input from the end user.
 
+See `the Modelling
+notebook <https://github.com/rajivsam/kmds_recipes/blob/main/recipes/machine_learning/imbalanced_cost_based_learning/modelling.ipynb>`__
+for implementation details.
+
 Report Generation
 -----------------
 
 Report generation is similar to the analytics exercise and simply
 involves loading the knowledge base and accessing the observation lists
 for each type of observation.
+
+See the `modelling observations report
+notebook <https://github.com/rajivsam/kmds_recipes/blob/main/recipes/machine_learning/imbalanced_cost_based_learning/sba_7a_loan_chargeoff_modelling.xml>`__
+for implementation details.
 
 References
 ----------
