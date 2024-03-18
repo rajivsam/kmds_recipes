@@ -129,7 +129,7 @@ involves loading the knowledge base and accessing the observation lists
 for each type of observation.
 
 See the `modelling observations report
-notebook <https://github.com/rajivsam/kmds_recipes/blob/main/recipes/machine_learning/imbalanced_cost_based_learning/sba_7a_loan_chargeoff_modelling.xml>`__
+notebook <https://github.com/rajivsam/kmds_recipes/blob/main/recipes/machine_learning/imbalanced_cost_based_learning/7a_chargeoff_modelling_observations_report.ipynb>`__
 for implementation details.
 
 References
