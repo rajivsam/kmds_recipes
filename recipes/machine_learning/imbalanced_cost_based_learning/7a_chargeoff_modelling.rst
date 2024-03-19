@@ -100,12 +100,14 @@ Modeling
    very practical and evolving area of research.
 7. Costs and probabilities can be used to compute the utility of each
    possible prediction. We can then pick the decision with the highest
-   utility. For example, the utility of approving the loan would be the
-   product of the guarantee fee the SBA receives and the probability of
-   the loan being paid in full. On the flip side, this action could cost
-   us the guarantee amount, since SBA `provides a
-   guarantee <https://www.sba.gov/sites/sbagov/files/2023-08/7%28a%29%20Fees%20Notice%20FY%2024%205000-848801.pdf>`__
-   for the loan. See (Elkan 2001) and (Sheng and Ling 2006) for a
+   utility. For example, the expected utility can be computed using the
+   gains from the payback (guarantee fee), loss from the chargeoff
+   (guaranteed loan amount), probability of payback and probability of
+   charge off. The probabilities are obtained from modeling. The loss
+   and gain information is available from the `SBA
+   website <https://www.sba.gov/sites/sbagov/files/2023-08/7%28a%29%20Fees%20Notice%20FY%2024%205000-848801.pdf>`__.
+   There can be more to computing the loss and gain, so this might not
+   be whole story. See (Elkan 2001) and (Sheng and Ling 2006) for a
    discussion of how classifiers can be made cost-sensitive. This
    requires the accurate calibration of probabilities from the
    classifier to get good results. There exist methods such as `Platt
