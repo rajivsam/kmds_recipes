@@ -15,4 +15,5 @@ importlib_resources
 woodwork
 kmds
 imbalanced-learn
+category_encoders
 
