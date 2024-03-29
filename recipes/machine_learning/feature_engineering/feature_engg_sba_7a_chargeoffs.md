@@ -6,8 +6,9 @@ In some application domains of machine learning, for example in Natural Language
 ## Key Ideas 
 
 In this recipe, we look at the features in the 7a loans dataset more carefully and develop a set of concise features. These features are based on the following principles:
-1. Generalization is an important aspect of machine learning. We cannot learn on subsets of data that do not let us evaluate the generalization of the learned hypothesis.
-2. Categorical attributes with high branching (many categories) can limit generalization.
+1. Categorical attributes with high branching (many categories) can limit generalization.
+2. Generalization is an important aspect of machine learning. Most category levels give us enough samples to evaluate generalization, some don't. We can set aside the data that do not give us enough samples to learn as outliers and learn on the rest. This gives us a learner where we have enough data to evaluate generalization.
+
 3. By examining the definition of the zip code attribute, we can feature engineer new attributes with less branching.
 
 ## Implementation
