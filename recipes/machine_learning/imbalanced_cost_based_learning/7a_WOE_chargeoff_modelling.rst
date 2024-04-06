@@ -6,11 +6,15 @@ representation developed in the feature engineering workflow. To recap,
 this model is developed on the data after removing the gold-quality
 loans and the outliers. The zip code is trimmed as discussed in the
 earlier feature engineering post. This has the following consequences:
+
 1. The imbalance is improved (from 5 percent charge-offs to about 11.4
-percent charge-offs) 2. The cardinality of the feature space is reduced
-considerably. 3. The dataset used for learning is smaller. The
-attributes considered for featurization have good support from the
-standpoint of evaluating generalization.
+   percent charge-offs)
+
+2. The cardinality of the feature space is reduced considerably.
+
+3. The dataset used for learning is smaller. The attributes considered
+   for featurization have good support from the standpoint of evaluating
+   generalization.
 
 Modeling Approach
 -----------------
