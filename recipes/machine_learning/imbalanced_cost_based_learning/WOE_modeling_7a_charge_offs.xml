@@ -263,10 +263,10 @@
 <owl:NamedIndividual rdf:about="#WOE_modeling_7a_charge_offs">
   <rdf:type rdf:resource="#KnowledgeApplicationWorkflow"/>
   <depends_on rdf:resource="#sba_7a_loans_WOE_DR_dev"/>
-  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation4"/>
   <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation1"/>
   <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation2"/>
   <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation3"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation4"/>
   <has_model_selection_observations rdf:resource="#modelselectionobservation1"/>
 </owl:NamedIndividual>
 
