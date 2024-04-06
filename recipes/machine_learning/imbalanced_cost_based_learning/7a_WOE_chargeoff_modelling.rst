@@ -36,14 +36,14 @@ Modeling Approach
     parameter to make the prediction. If the probability is below a
     threshold, the prediction is a non-event (paid in full), else we
     predict that the event will occur (charge off).
-3.  There are some guidelines based on maximizing a statistic that would
-    give us the maximum possible specificity and sensitivity - examples
-    include geometric mean and Youden’s J statistic. These are
-    guidelines developed using simulations or approximations in most
-    cases. So they are a decent start, but you still may need to tune
-    the threshold using a method that you can afford to evaluate. This
-    could be as simple as a grid search or as sophisticated as Bayesian
-    Optimization.
+3.  There are some guidelines for the threshold value based on
+    maximizing a statistic that would give us the maximum possible
+    specificity and sensitivity - examples include geometric mean and
+    Youden’s J statistic. These are guidelines developed using
+    simulations or approximations in most cases. So they are a decent
+    start, but you still may need to tune the threshold using a method
+    that you can afford to evaluate. This could be as simple as a grid
+    search or as sophisticated as Bayesian Optimization.
 4.  Threshold moving involves evaluating model performance (recall and
     precision) over a range of threshold values and then determining an
     *acceptable* threshold, i.e., one that produces acceptable false
@@ -64,7 +64,9 @@ Modeling Approach
     risk or security setting, some level of false positives may be
     acceptable, the sensitivity is very critical.
 6.  The Precision Recall curve summarizes the performance of the model
-    with respect to these parameters. It is provided in the notebook
+    with respect to these parameters. It is provided in the notebook. We
+    can use this curve to estimate the true positive rates (precision)
+    that we can anticipate with our desired recall.
 7.  This notebook depends on the feature engineering and WOE encoding
     done in the feature engineering workflow. So the dependency between
     the model workflow and the feature engineering workflow must be
