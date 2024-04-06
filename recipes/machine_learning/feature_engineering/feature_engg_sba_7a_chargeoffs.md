@@ -10,6 +10,9 @@ In this recipe, we look at the features in the 7a loans dataset more carefully a
 2. Generalization is an important aspect of machine learning. Most category levels give us enough samples to evaluate generalization, some don't. We can set aside the data that do not give us enough samples to learn as outliers and learn on the rest. This gives us a learner where we have enough data to evaluate generalization.
 
 3. By examining the definition of the zip code attribute, we can feature engineer new attributes with less branching.
+4. By checking for category levels that have a single target attribute level, we can identify _pure_ attribtues. If we keep in mind that most loans are paid in full and that there are less 5% of loan defaults, we can identify about 12 K loans associated with attributes that are always associated with a pay off. For example, there exists Business Types (NAICS codes), Borrower and Bank Zips that are never associated with default. So these attributes identify the **gold** quality loans. So when we have to classify a new loan, assuming we are only going to use 2023 data for training, then if we find the loans attributes are a match with the **gold** quality loans then we can immediately conclude that these loans will be paid in full. This type of classification rule is similar to the [_1R_ algorithm ](https://www.cs.waikato.ac.nz/~ihw/papers/95NM-GH-IHW-Develop.pdf).
+5. There are about 12 K gold quality loans in this dataset. When we remove these loans from the training dataset, we notice that the _class imbalance_ gets much better, it becomes about 10 percent. So feature engineering and data analysis can lead us to a better problem framing.
+6. The weight of evidence encoding is then applied to the training dataset (without the gold quality loans) and then we have a featurized dataset for learning.
 
 ## Implementation
 1. Please see [the wikipedia zipcode interpretation](https://en.wikipedia.org/wiki/ZIP_Code#:~:text=ZIP%20Codes%20are%20numbered%20with,delivery%20addresses%20within%20that%20region.). By limiting the zip code feature to the first three digits we can create category levels that offer us more data for learning with generalization.
@@ -21,5 +24,7 @@ In this recipe, we look at the features in the 7a loans dataset more carefully a
 2. The goal of this workflow is to develop a clean and concise data representation for learning. Therefore, all observations are going to _DataRepresentationObservations_.
 3. Feature engineering rationale and decisions are logged.
 4. Outlier information is logged.
-5. Weight of Evidence encoding is applied encode the cleaned data, this is logged.
+5. Gold quality (_pure level_) identification criteria, its application and its result - importantly, the change in class imbalance that results is logged.
+6. The fact that learning is performed only on loans that are not gold quality is logged.
+7. Weight of Evidence encoding is applied encode the cleaned data, this is logged.
 Please see the notebook for details of the implementation.

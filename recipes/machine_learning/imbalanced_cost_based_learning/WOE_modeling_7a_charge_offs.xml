@@ -260,48 +260,49 @@
   <rdfs:subClassOf rdf:resource="#KMObservation"/>
 </owl:Class>
 
-<owl:NamedIndividual rdf:about="#sba_7a_loans_WOE_DR_dev">
+<owl:NamedIndividual rdf:about="#WOE_modeling_7a_charge_offs">
   <rdf:type rdf:resource="#KnowledgeApplicationWorkflow"/>
-  <has_data_representation_observations rdf:resource="#datarepresentationobservation4"/>
-  <has_data_representation_observations rdf:resource="#datarepresentationobservation5"/>
-  <has_data_representation_observations rdf:resource="#datarepresentationobservation2"/>
-  <has_data_representation_observations rdf:resource="#datarepresentationobservation3"/>
-  <has_data_representation_observations rdf:resource="#datarepresentationobservation1"/>
+  <depends_on rdf:resource="#sba_7a_loans_WOE_DR_dev"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation4"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation1"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation2"/>
+  <has_modeling_choice_observations rdf:resource="#modellingchoiceobservation3"/>
+  <has_model_selection_observations rdf:resource="#modelselectionobservation1"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#datarepresentationobservation1">
-  <rdf:type rdf:resource="#DataRepresentationObservation"/>
-  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If we use the zip code in both borrower and bank, as is, we get many cateogories with too few records.This will hinder generalization. By restricting ourself to the first three digits of the zip code we can get better generalization data.This is done as part othis feature development experiment.</finding>
+<owl:NamedIndividual rdf:about="#modelselectionobservation1">
+  <rdf:type rdf:resource="#ModelSelectionObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Logistic Regression using WOE encoding features was evaluated</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
-  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+  <model_selection_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Selection Observation</model_selection_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#datarepresentationobservation2">
-  <rdf:type rdf:resource="#DataRepresentationObservation"/>
-  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Even after shrinking the zip code representation for borrower and bank, we have many categorieswith less than 5 observations. We drop these observations from the data used for model development. This subset of datathat have too few examples similar to it are deemed outliers. We can analyze these separately. A large chunk of the dataoffers good generalization, so we proceed with the analysis with the good data and set aside the outliers. These can be profiledand analyzed later.</finding>
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation1">
+  <rdf:type rdf:resource="#ModellingChoiceObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model Evaluation is done using 5 fold cross validation and with L2 regularization</finding>
+  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
+  <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation2">
+  <rdf:type rdf:resource="#ModellingChoiceObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Isotonic Regression is used for model recalibration.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
-  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+  <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#datarepresentationobservation3">
-  <rdf:type rdf:resource="#DataRepresentationObservation"/>
-  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">There are some category levels with only value of target attribute. These are not really useful for trainingbecause the target attribute will always be the single value associated with these categories. This is the analogue of the IR classifier for these levels. So we don't include them in training. For new loans in 2024, if they have category values inthis dataset, we simply classify them with the paid in full tag</finding>
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation3">
+  <rdf:type rdf:resource="#ModellingChoiceObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maximal Geometric Mean from ROC curve plot is used to prime the threshold moving experiment</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</finding_sequence>
-  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+  <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#datarepresentationobservation4">
-  <rdf:type rdf:resource="#DataRepresentationObservation"/>
-  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">After removing the gold quality loans, the imbalance in the dataset improves from under 5 percent to 11.4 percent.</finding>
+<owl:NamedIndividual rdf:about="#modellingchoiceobservation4">
+  <rdf:type rdf:resource="#ModellingChoiceObservation"/>
+  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interval of 50 percent of the optimal threshold value on either direction is explored as part of threshold moving.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</finding_sequence>
-  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#datarepresentationobservation5">
-  <rdf:type rdf:resource="#DataRepresentationObservation"/>
-  <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A weight of evidence encoder is used to encode the categorical values.</finding>
-  <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</finding_sequence>
-  <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Transformation Observation</data_representation_observation_type>
+  <modelling_choice_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modelling Choice Observation</modelling_choice_observation_type>
 </owl:NamedIndividual>
 
 
