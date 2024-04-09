@@ -20,4 +20,5 @@ To recap, the summary for lender data for 2023 is as follows:
 4. The quartile binning results must be logged.
 5. The bin collapsing and the resulting bin structure with similar counts in each bin must be logged.
 6. The summarization of the dataset into the three subsets, gold quality, outliers and WOE model scored, must be logged.
+7. Please see [this notebook](https://github.com/rajivsam/kmds_recipes/blob/main/recipes/machine_learning/data_annotation/7a_chargeoffs_data_annotation_report.ipynb) for the KMDS report.
 
