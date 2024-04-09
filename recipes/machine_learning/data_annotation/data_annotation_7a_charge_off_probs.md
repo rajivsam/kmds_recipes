@@ -10,6 +10,7 @@ To recap, the summary for lender data for 2023 is as follows:
 1. The model from WOE modeling is saved to a model directory. In an enterprise setting this could be a _model registry_.
 2. The saved model is loaded, and is used to score the 2023 data. This gives us the chargeoff probabilities for the entire dataset.
 3. The probability calibration approach used _deciles_ to compute and compare estimated probability versus true probability. This binning scheme (deciles) produces many bins with low counts. This is because of the imabalance in the dataset (majority of the lenders will pay back in full). If we use this scheme, the resulting interpretation is a little too verbose and fine grained. So a quartile binning scheme was evaluated. This ameliorated the problem considerably. By combining the third and fourth bins together, we get a binning of the data with _similar_ counts in each bin. This gives us three bins. The interpretation is now very succinct. We can rate these bins as good, average and poor on the basis of the proportion of charge offs in each bin.
+4. This annotation of the data into three grades, good, average and poor, serves another useful purpose. It may turn out that this categorization is sufficient for the customer. They may not care about the actual probability, the bin profile gives them a picture of charge off rarity in that bin and this may be sufficient for them to decision a new lender in 2024.
 
 ## KMDS Logging
 1. WOE model is a dependency for this annotation workflow. This dependency must be indicated.
