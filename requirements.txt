@@ -18,5 +18,6 @@ imbalanced-learn
 ortools==9.7.2996
 category_encoders
 optbinning
+pyts
 
 
