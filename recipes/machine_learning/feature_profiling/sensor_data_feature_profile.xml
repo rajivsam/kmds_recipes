@@ -168,6 +168,12 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
+<owl:DatatypeProperty rdf:about="#intent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#KMObservation"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
 <owl:DatatypeProperty rdf:about="#exploratory_observation_type">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#ExploratoryObservation"/>
@@ -262,9 +268,9 @@
 
 <owl:NamedIndividual rdf:about="#sensor_data_feature_profile">
   <rdf:type rdf:resource="#KnowledgeExtractionExperimentationWorkflow"/>
+  <has_exploratory_observations rdf:resource="#exploratoryobservation2"/>
   <has_exploratory_observations rdf:resource="#exploratoryobservation3"/>
   <has_exploratory_observations rdf:resource="#exploratoryobservation1"/>
-  <has_exploratory_observations rdf:resource="#exploratoryobservation2"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation2"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation1"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation3"/>
@@ -275,6 +281,7 @@
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oil and Water have very distinct voltage recordings on the sensor. It looks like there is goodseparation (except for label noise) for this dataset. Voltage build up on the sensor has an exponential typebehavior due to the physics of the process and the capacitive nature of the sensor.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
   <exploratory_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Quality Observation</exploratory_observation_type>
+  <intent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DATA_UNDERSTANDING</intent>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#exploratoryobservation2">
@@ -282,6 +289,7 @@
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analysis of the classifier errors revealed that there is likely some label noise in the data. These can be identified,by running an outlier analysis (for example, with the IsolationForest algorithm) to identify outliers. The classifier should be developed.after removing the label noise.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
   <exploratory_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Quality Observation</exploratory_observation_type>
+  <intent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DATA_UNDERSTANDING</intent>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#exploratoryobservation3">
@@ -289,6 +297,7 @@
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A non parametric method, decision tree was used for the feature profiling, but, since there is good separation,a hyperplane classifier should also work well. The contributors of this dataset have used an SVM for example.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</finding_sequence>
   <exploratory_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Quality Observation</exploratory_observation_type>
+  <intent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DATA_UNDERSTANDING</intent>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#datarepresentationobservation1">
@@ -296,6 +305,7 @@
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Two featurization schemes are evaluated (1) With raw features (2) Featurization with statistical signal properties</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</finding_sequence>
   <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+  <intent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FEATURE_ASSESSMENT</intent>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#datarepresentationobservation2">
@@ -303,6 +313,7 @@
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The featurization scheme with the statistical properties performs better.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</finding_sequence>
   <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+  <intent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FEATURE_ASSESSMENT</intent>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#datarepresentationobservation3">
@@ -310,6 +321,7 @@
   <finding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The minimum volatage value recorded by the sensor has the most discriminative power.</finding>
   <finding_sequence rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</finding_sequence>
   <data_representation_observation_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feature Engineering Observation</data_representation_observation_type>
+  <intent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FEATURE_ASSESSMENT</intent>
 </owl:NamedIndividual>
 
 

@@ -168,6 +168,12 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
+<owl:DatatypeProperty rdf:about="#intent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#KMObservation"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
 <owl:DatatypeProperty rdf:about="#exploratory_observation_type">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="#ExploratoryObservation"/>
@@ -263,8 +269,8 @@
 <owl:NamedIndividual rdf:about="#7a_credit_quality_data_annotation">
   <rdf:type rdf:resource="#KnowledgeApplicationWorkflow"/>
   <depends_on rdf:resource="#WOE_modeling_7a_charge_offs"/>
-  <has_data_representation_observations rdf:resource="#datarepresentationobservation4"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation3"/>
+  <has_data_representation_observations rdf:resource="#datarepresentationobservation4"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation1"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation2"/>
 </owl:NamedIndividual>
