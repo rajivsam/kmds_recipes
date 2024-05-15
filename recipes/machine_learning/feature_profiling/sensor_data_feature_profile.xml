@@ -272,8 +272,8 @@
   <has_exploratory_observations rdf:resource="#exploratoryobservation3"/>
   <has_exploratory_observations rdf:resource="#exploratoryobservation1"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation2"/>
-  <has_data_representation_observations rdf:resource="#datarepresentationobservation1"/>
   <has_data_representation_observations rdf:resource="#datarepresentationobservation3"/>
+  <has_data_representation_observations rdf:resource="#datarepresentationobservation1"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#exploratoryobservation1">
